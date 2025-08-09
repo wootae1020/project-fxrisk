@@ -1,45 +1,96 @@
-# iM 환율적 참견시점 (Project FX-Risk)
+# 📂 Project 972 - Data Science & AI Portfolio Hub
 
-## 1. 프로젝트 개요
-환율 변동성에 직접 노출되는 수출입 기업을 위해 **정밀한 환율 예측 모델 기반의 환리스크 대응 솔루션**을 제공하는 것이 본 프로젝트의 목표입니다. 시계열 딥러닝(LSTM) 모델을 중심으로 주요 환율의 흐름을 정확히 예측하고, 그 결과를 바탕으로 선물환 및 옵션 등의 **환리스크 헤징 전략을 자동 제안**합니다. 이를 통해 기업이 환율 급등락의 불확실성을 완화하고 보다 **안정적이고 전략적인 의사결정**을 내릴 수 있도록 지원합니다. 나아가 다양한 거시 경제 지표와 시장 데이터를 통합 분석함으로써, **기업 외환 컨설팅의 디지털 전환**을 이끄는 포괄적인 의사결정 지원 플랫폼 구축을 지향합니다.
+이 저장소는 제가 수행한 **데이터 분석, 머신러닝, 딥러닝, AI 응용 프로젝트**를 한눈에 볼 수 있는 허브(Hub)입니다.  
+각 프로젝트 제목을 클릭하면 GitHub 저장소로 이동하여 상세 코드, 데이터, 보고서를 확인할 수 있습니다.
 
-## 2. 배경 및 문제 정의
-환율의 급격한 변동은 수출입 기업의 수익성과 재무안정성에 **직접적인 리스크 요인**으로 작용합니다. 그러나 국내 중소기업의 경우 전문 인력과 시스템 부족으로 **환리스크 대응 전략이 부재**한 채, 환율 변동에 **사후적으로 대응**하는 실정입니다. 실제로 **중소기업 2곳 중 1곳은 환리스크에 대응하지 못하고 있으며**, 환율 변동성이 높아지면 영업이익률이 감소하고 부도율이 상승하는 현상까지 확인되었습니다. 최근에는 미국의 고금리 기조, 일본의 통화정책 변화, 중국 경제 둔화 등 **글로벌 변수들이 복합적으로 작용**하여 환율 예측이 더욱 어려워지고 기업이 체감하는 환리스크가 빠르게 확대되고 있습니다. 그럼에도 불구하고 시중의 환율 정보 서비스는 **미 달러 위주 과거 추세 제시**에 그치고 있어, 기업 의사결정에 실질적인 도움을 주는 **AI 기반 자동화 의사결정 시스템은 부재**한 상황입니다. 이로 인해 2024년 말 원/달러 환율이 1470원까지 치솟았을 때 일부 기업들은 잘못된 선물환 헤지로 **8565억 원대의 파생손실**을 입는 사례도 발생하였습니다. 
+---
 
-**문제 정의:**
-- **정밀한 환율 예측 모델 필요** (USD/KRW, JPY/KRW, CNY/KRW 등 단기·중기 예측)
-- **기업 맞춤형 전략 반영** (수출/수입 여부, 결제 통화, 결제 시점 차이 반영)
-- **예측 결과 활용도 제고** (손익 시뮬레이션, 전략 제안, 정책 브리핑 제공)
-- **외부 요인의 통합** (금리, 정책, EPU, 원자재 가격, 뉴스 등 복합 데이터 활용)
+## 📊 [project-statistics](https://github.com/wootae1020/project-statistics)
+- **주제:** 통계학 기반 금융 데이터 분석
+- **개요:** IT 아웃소싱 플랫폼 L사의 실거래 데이터를 분석하여, 거래 성사율 제고·수수료 구조 개선·고객 유지 전략을 도출
+- **주요 활동:**
+  - 고객·전문가·서비스·거래 로그 4개 원천 데이터 통합 및 전처리
+  - 가설 기반 통계 분석(다중회귀, 로지스틱 회귀, ANOVA, 카이제곱 검정)
+  - 가격·전문가 특성·수수료와 거래 성사율의 상관관계 분석
+- **성과:**
+  - 전문가 평점·응답속도가 만족도 및 거래 성사율에 유의미한 영향
+  - 고가 서비스일수록 거래 실패 가능성 증가
+  - 수수료율은 매출에는 긍정적이나 성사율과 무관
+- **기술 스택:** Python, Pandas, Statsmodels, Matplotlib, Seaborn
+- **산출물:**  
+  - [기획서 PDF](https://github.com/wootae1020/project-statistics/blob/main/results/statistics_project_proposal.pdf)  
+  - [프레젠테이션 PDF](https://github.com/wootae1020/project-statistics/blob/main/results/statistics_project_presentation.pdf)
 
-## 3. 주요 기능 소개
-1. **날짜별 주요 이슈 및 지표 추이**  
-   - 특정 날짜 선택 시 해당 시점의 주요 경제 뉴스 키워드, 환율 추이, EPU 지수 변화 시각화
-2. **환율 예측기 & 전략 제안**  
-   - 통화·예측 시점·보유 금액·기업 유형 입력 → 예측 결과 기반 손익 계산 + 맞춤형 전략 추천
-3. **최신 통화정책 브리핑 요약**  
-   - 한국은행 발표문 자동 요약 제공 (약 1시간 분량 발표 핵심 요약)
+---
 
-## 4. 데이터 및 모델링
-- **데이터**: 2022~2025 환율(USD, JPY, EUR, CNY) 일별 데이터, 기술적 지표(RSI, MACD, Bollinger Band 등), 거시경제지표(금리, 무역수지, 유가, 금, DXY 등), EPU 지수, 뉴스 데이터(NLP 기반 토픽 모델링·감성 분석)
-- **모델링**: LSTM, XGBoost, Random Forest 병행
-  - LSTM: 시계열 패턴 학습 및 단기 예측에서 높은 성능
-  - BERT 기반 감성 분석: 뉴스 데이터로 시장 심리 계량화
-  - LDA 기반 토픽 모델링: 월별 주요 이슈 키워드 추출
+## 🧠 [project-ml](https://github.com/wootae1020/project-ml)
+- **주제:** 머신러닝 기반 신용카드 고객 세그먼트 분류
+- **개요:** 신용카드 사용 데이터를 기반으로 고객을 A~E 세그먼트로 분류하는 다중 분류 모델을 개발하여, 맞춤형 마케팅 전략 수립 및 비용 효율 개선
+- **주요 활동:**
+  - Dacon(2018) 및 iM뱅크(2021~2023) 카드 데이터 통합 분석
+  - 결측치 처리, 인코딩, 상관관계 기반 피처 선택 및 중복 제거
+  - XGBoost·LightGBM·CatBoost·Logistic·Decision Tree 비교
+- **성과:**
+  - Gradient Boosting 기반 Soft Voting Ensemble로 F1-score 0.649 달성
+  - 고차원·불균형 데이터에 대한 안정적 성능 확보
+  - 세그먼트 기준 재정의 및 피처 정제 필요성 확인
+- **기술 스택:** Python, scikit-learn, XGBoost, LightGBM, CatBoost, Optuna
+- **산출물:**  
+  - [기획서 PDF](https://github.com/wootae1020/project-ml/blob/main/results/ml_project_proposal.pdf)  
+  - [프레젠테이션 PDF](https://github.com/wootae1020/project-ml/blob/main/results/ml_project_presentation.pdf)
 
-## 5. 사용 기술 및 도구
-- **분석/개발**: Python (Pandas, NumPy), Matplotlib, Seaborn
-- **머신러닝/딥러닝**: LSTM, XGBoost, Random Forest, BERT
-- **웹 구현**: Streamlit
-- **기타 기법**: EPU 지수 산출, 뉴스 토픽 모델링(LDA), COSTAR 프롬프트 기반 AI 요약
+---
 
-## 6. 결과 요약 및 시각화
-- **예측 성능**: USD/KRW 1일 후 예측 시 LSTM R² ≈ 0.9555 (최고 성능)
-- **인사이트**: 단기 예측에 LSTM이 효과적, 장기 예측은 불확실성 증가로 성능 저하
-- **시각화**: 환율 추이 그래프, EPU 지수 변화, 손익 시뮬레이션 결과, 전략 추천, 월별 뉴스 토픽 워드클라우드, 환율 변동성 지수 차트
+## 🚇 [project-dl](https://github.com/wootae1020/project-dl)
+- **주제:** 지하철 혼잡도 예측 기반 광고 전략 최적화
+- **개요:** 서울 지하철 1~8호선의 1시간 단위 혼잡도를 LSTM 모델로 예측하여, 광고 노출 전략 및 요금 차등화에 활용
+- **주요 활동:**
+  - 2021~2023년 서울교통공사 혼잡도 데이터 + 기상청 기상 데이터 통합
+  - 결측치 보간, 이상치 제거, 범주형 인코딩, 시간 주기성 변환 등 전처리
+  - LSTM(2층, 64→32유닛) 기반 호선별 모델 학습 및 성능 최적화
+- **성과:**
+  - 호선별 모델 R² 0.9646~0.978, RMSE 3.14~4.93
+  - 황사 발생 시 혼잡도 평균 9.29% 증가 분석
+  - 혼잡도 기반 광고 전략 제안 (시간대·노선별 맞춤형 광고)
+- **기술 스택:** Python, TensorFlow/Keras(LSTM), Pandas, Scikit-learn, Matplotlib
+- **산출물:**  
+  - [기획서 PDF](https://github.com/wootae1020/project-dl/blob/main/results/dl_project_proposal.pdf)  
+  - [프레젠테이션 PDF](https://github.com/wootae1020/project-dl/blob/main/results/dl_project_presentation.pdf)
 
-## 7. 기대 효과 및 활용 방안
-- **기업**: 환율 급변에 선제 대응, 환차손 방지, 재무 안정성 강화
-- **은행**: RM의 외환 컨설팅 업무 지원, 비대면 맞춤형 서비스 확대
-- **시장 전반**: 중소기업 환리스크 대응 역량 제고, 포용 금융 구현
+---
 
+## 🛒 [project-mldl](https://github.com/wootae1020/project-mldl)
+- **주제:** 정형 데이터 기반 AutoML 분석 및 고객 인사이트 도출
+- **개요:** 유아용품 전문 쇼핑몰 '맘큐'의 내부 데이터와 외부 데이터를 결합하여 고객 이탈 예측, 구매 패턴 분석, 배송 소요 기간 예측, 브랜드 캠페인 효과 분석 수행
+- **주요 활동:**
+  - **구매 패턴 분석:** RFM 지표 기반 고객 세그먼트 분류 및 세그먼트별 맞춤 마케팅 전략 제안
+  - **고객 이탈 예측:** H2O AutoML로 이탈 확률 예측 모델 개발 및 리텐션 전략 도출
+  - **배송일 예측:** 외부 물류 데이터 결합 → LightGBM, AutoML 성능 비교
+  - **브랜드 캠페인 분석:** 허그박스 리뷰 데이터 NLP 분석(Okt, Kiwi, LDA)으로 고객 반응 및 만족도 파악
+- **성과:**
+  - 세그먼트별 차별화된 마케팅 인사이트 도출
+  - 이탈 위험 고객 조기 식별 및 대응 전략 마련
+  - 배송 지연 사전 감지 가능 모델 구현
+- **기술 스택:** Python, pandas, scikit-learn, LightGBM, H2O AutoML, NLP(Okt, Kiwi, LDA), matplotlib, seaborn, plotly
+- **산출물:**  
+  - [기획서 PDF](https://github.com/wootae1020/project-mldl/blob/main/results/mldl_project_proposal.pdf)  
+  - [프레젠테이션 PDF](https://github.com/wootae1020/project-mldl/blob/main/results/mldl_project_presentation.pdf)
+
+---
+
+## 💱 [project-fxrisk](https://github.com/wootae1020/project-fxrisk)
+- **주제:** AI 기반 환율 예측 및 환리스크 대응 플랫폼
+- **개요:** LSTM 기반 환율 예측과 거시경제·시장 데이터를 결합하여 수출입 기업에 맞춤형 환헤지 전략을 자동 제안하는 통합 웹 서비스 개발
+- **주요 활동:**
+  - 2022~2025년 USD, JPY, EUR, CNY 환율 데이터 + 기술적 지표 + 거시경제지표 + EPU 지수 + 뉴스 데이터 통합
+  - LSTM·XGBoost·Random Forest 모델 비교 및 최적화
+  - BERT 기반 뉴스 감성 분석, LDA 토픽 모델링, COSTAR 프롬프트 기반 통화정책 브리핑 요약
+- **성과:**
+  - USD/KRW 1일 후 예측 R² ≈ 0.9555 (LSTM)
+  - 날짜별 주요 이슈·EPU 추이·예측 환율 기반 손익 시뮬레이션 및 전략 추천 기능 구현
+  - 기업·은행·투자자가 환율 변동에 선제 대응할 수 있는 실용적 플랫폼 완성
+- **기술 스택:** Python, LSTM, XGBoost, Random Forest, BERT, Streamlit, Pandas, Matplotlib, Seaborn
+- **산출물:**  
+  - [기획서 PDF](https://github.com/wootae1020/project-fxrisk/blob/main/results/fxrisk_project_proposal.pdf)  
+  - [프레젠테이션 PDF](https://github.com/wootae1020/project-fxrisk/blob/main/results/fxrisk_project_presentation.pdf)  
+  - [보고서 PDF](https://github.com/wootae1020/project-fxrisk/blob/main/results/fxrisk_project_report.pdf)
