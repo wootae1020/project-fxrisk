@@ -61,3 +61,5 @@
 * 실무에서 쓰려면 **기술+도메인 지식+UI/UX**가 모두 중요하다는 걸 배웠습니다.
 
 ---
+
+[← Project 972로 돌아가기](https://github.com/wootae1020/project972)
